@@ -313,7 +313,10 @@ export function parseComments(text, { defaultCity = '', defaultLanguage = 'es', 
       financing: /itin/i.test(line) ? 'itin' : 'unsure',
       timeline: /(ahora|hoy|ya|asap|now|this month|este mes)/i.test(line) ? 'now' : 'unknown',
       raw: line,
-      confidence: (name ? 40 : 0) + (phone ? 35 : 0) + (email ? 20 : 0) + (interested ? 15 : 0),
+      // Weighted toward intent, not identity. A name only tells you who wrote
+      // the comment; "me interesa" or a phone number tells you they want
+      // something. Someone who just wrote "nice house 🔥" is not a lead.
+      confidence: (interested ? 45 : 0) + (phone ? 35 : 0) + (email ? 25 : 0) + (name ? 15 : 0),
     });
   }
 

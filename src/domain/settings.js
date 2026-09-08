@@ -1,6 +1,8 @@
 // Application settings: agent identity, commission defaults, goals, integrations.
 
 import * as store from '../lib/store.js';
+import { randomBytes } from 'node:crypto';
+
 import { nowIso } from '../lib/util.js';
 
 export const DEFAULT_SETTINGS = {
@@ -71,6 +73,34 @@ export const DEFAULT_SETTINGS = {
       secret: '',
     },
   },
+  // Lets Claude in Chrome (or any browser agent) drive this system from a
+  // Facebook tab. The token is generated on first use and must be sent as
+  // `X-Agent-Token`; without it the agent API refuses every request, so a
+  // random website cannot read the lead database.
+  automation: {
+    enabled: false,
+    token: '',
+    // Origins allowed to call the agent API cross-origin. Kept to an
+    // allowlist rather than "*" because this server holds client phone numbers.
+    allowedOrigins: [
+      'https://www.facebook.com',
+      'https://facebook.com',
+      'https://m.facebook.com',
+      'https://web.facebook.com',
+      'https://www.messenger.com',
+      'https://business.facebook.com',
+    ],
+    // Guardrails. These exist because bulk messaging is what gets a Facebook
+    // account restricted — the queue refuses to hand out more than this.
+    limits: {
+      dmsPerDay: 25,
+      dmsPerHour: 8,
+      commentRepliesPerDay: 40,
+      postsPerDay: 2,
+      minSecondsBetweenActions: 45,
+    },
+    lastActivityAt: null,
+  },
   server: {
     port: 4317,
     host: '127.0.0.1',
@@ -132,7 +162,26 @@ export function publicSettings() {
         hasSecret: Boolean(s.integrations.webhook.secret),
       },
     },
+    automation: {
+      ...s.automation,
+      // Served only by GET /api/automation/token, never in the general payload.
+      token: s.automation.token ? '••••••••' : '',
+      hasToken: Boolean(s.automation.token),
+    },
   };
+}
+
+/**
+ * The agent token is shown in full in the dashboard (the operator has to copy it
+ * into Claude), so it is served by its own endpoint rather than the general
+ * settings payload. Generated on first read.
+ */
+export function agentToken({ regenerate = false } = {}) {
+  const s = getSettings();
+  if (s.automation.token && !regenerate) return s.automation.token;
+  const token = `mbe_${randomBytes(24).toString('hex')}`;
+  saveSettings({ automation: { token, enabled: true } });
+  return token;
 }
 
 export function baseUrl() {

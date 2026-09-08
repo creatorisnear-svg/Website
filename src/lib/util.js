@@ -67,6 +67,22 @@ export function normalizeEmail(raw) {
   return String(raw || '').trim().toLowerCase();
 }
 
+/**
+ * Fold a name for comparison: strip accents, collapse whitespace, lowercase.
+ * Essential here — most of these leads have Spanish names, and the same person
+ * writes "María Solís" on one post and "Maria Solis" on the next. Without this
+ * they become two leads and get messaged twice.
+ */
+export function normalizeName(raw) {
+  return String(raw || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
 export function slugify(s) {
   return String(s || '')
     .toLowerCase()

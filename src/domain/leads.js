@@ -2,7 +2,7 @@
 
 import * as store from '../lib/store.js';
 import {
-  uid, nowIso, num, clamp, normalizePhone, normalizeEmail, addDays, sortBy,
+  uid, nowIso, num, clamp, normalizePhone, normalizeEmail, normalizeName, addDays, sortBy,
 } from '../lib/util.js';
 import { inMarket, cityForZip, findCity } from './market.js';
 
@@ -249,13 +249,20 @@ export function findDuplicate(candidate) {
     const hit = rows.find((r) => r.email && r.email === email);
     if (hit) return hit;
   }
-  const name = String(candidate.name || '').trim().toLowerCase();
+  // Accent-insensitive so "María Solís" and "Maria Solis" are one person.
+  const name = normalizeName(candidate.name);
   if (name && (candidate.city || candidate.zip)) {
     const hit = rows.find(
       (r) =>
-        r.name.trim().toLowerCase() === name &&
+        normalizeName(r.name) === name &&
         (r.city === candidate.city || (r.zip && r.zip === candidate.zip)),
     );
+    if (hit) return hit;
+  }
+  // A distinctive full name (3+ parts) is enough on its own — requiring a city
+  // match would miss the common case where one mention has no city attached.
+  if (name && name.split(' ').length >= 3) {
+    const hit = rows.find((r) => normalizeName(r.name) === name);
     if (hit) return hit;
   }
   return null;

@@ -299,12 +299,14 @@ export function registerApiRoutes(router) {
   router.get('/api/settings', (req, res) => sendJson(res, 200, { settings: publicSettings() }));
 
   router.patch('/api/settings', (req, res, { body }) => {
-    // Never let a redacted placeholder overwrite a real secret.
+    // Never let a redacted placeholder overwrite a real secret. publicSettings()
+    // sends "••••••••" for every secret, so a naive save round-trip would
+    // otherwise wipe them.
     const clean = JSON.parse(JSON.stringify(body || {}));
-    const tok = clean?.integrations?.facebook?.accessToken;
-    if (tok && /^•+$/.test(tok)) delete clean.integrations.facebook.accessToken;
-    const sec = clean?.integrations?.webhook?.secret;
-    if (sec && /^•+$/.test(sec)) delete clean.integrations.webhook.secret;
+    const redacted = (v) => typeof v === 'string' && /^•+$/.test(v);
+    if (redacted(clean?.integrations?.facebook?.accessToken)) delete clean.integrations.facebook.accessToken;
+    if (redacted(clean?.integrations?.webhook?.secret)) delete clean.integrations.webhook.secret;
+    if (redacted(clean?.automation?.token)) delete clean.automation.token;
     saveSettings(clean);
     sendJson(res, 200, { settings: publicSettings() });
   });

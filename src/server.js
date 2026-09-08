@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { createRouter, sendJson, sendText, serveStatic, readBody, redirect } from './lib/http.js';
 import { registerApiRoutes } from './routes/api.js';
 import { registerPublicRoutes } from './routes/public.js';
+import { registerAgentRoutes } from './routes/agent.js';
 import { getSettings } from './domain/settings.js';
 import * as store from './lib/store.js';
 import { prettyPhone } from './lib/util.js';
@@ -22,6 +23,7 @@ const PUBLIC_DIR = path.join(ROOT, 'public');
 
 const router = createRouter();
 registerPublicRoutes(router);
+registerAgentRoutes(router);
 registerApiRoutes(router);
 
 // Dashboard shell

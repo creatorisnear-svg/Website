@@ -23,6 +23,7 @@ const COLLECTIONS = [
   'posts',
   'prospects',
   'clicks',
+  'agentActions',
   'settings',
 ];
 

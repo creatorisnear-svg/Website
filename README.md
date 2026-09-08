@@ -108,6 +108,21 @@ later, you know exactly which post earned you that commission.
 There is also a weekly posting plan and the best posting times for Phoenix-area
 Spanish-language audiences.
 
+### 🤖 Automation — Claude in Chrome does the tedious part
+
+Pair [Claude in Chrome](docs/CLAUDE-IN-CHROME.md) with this system and it will
+collect comments off your posts, research buyers, draft your posts, and type each
+follow-up message into the right conversation.
+
+**Claude prepares, you send.** It types the message and stops; you read it and
+press send. That keeps every message human-approved — which is what keeps the
+account out of trouble, since automated outreach to strangers is what gets
+Facebook accounts restricted.
+
+The queue enforces the limits itself (25 messages/day, 8/hour, quiet hours), so
+they hold regardless of how Claude is prompted. Setup is one copied prompt from
+the **Automation** tab.
+
 ### 👥 Pipeline
 
 - **Lead scoring, 0-100** — timeline, pre-approval, down payment, budget, reachability,

@@ -5,6 +5,7 @@ import { renderRevenue, renderDeals } from './view-revenue.js';
 import { renderLeads, renderPipeline, openLeadDrawer, leadForm } from './view-leads.js';
 import { renderFind } from './view-find.js';
 import { renderContent, renderCampaigns } from './view-content.js';
+import { renderAutomation } from './view-automation.js';
 import { renderSettings } from './view-settings.js';
 
 const VIEWS = [
@@ -15,6 +16,7 @@ const VIEWS = [
   { id: 'campaigns', icon: '📣', label: 'Campaigns',   title: 'Campaigns', sub: 'Spend in, leads and closings out', render: renderCampaigns, group: 'Growth' },
   { id: 'leads',     icon: '👥', label: 'Leads',       title: 'Leads', sub: 'Everyone in the system, hottest first', render: renderLeads, group: 'Pipeline' },
   { id: 'pipeline',  icon: '📊', label: 'Pipeline',    title: 'Pipeline', sub: 'Where every buyer stands today', render: renderPipeline, group: 'Pipeline' },
+  { id: 'automation', icon: '🤖', label: 'Automation', title: 'Automation', sub: 'Claude prepares the work — you press send', render: renderAutomation, group: 'System' },
   { id: 'settings',  icon: '⚙️', label: 'Settings',    title: 'Settings', sub: 'Commission split, goals and integrations', render: renderSettings, group: 'System' },
 ];
 
@@ -97,14 +99,17 @@ async function render(silent = false) {
   // Badges: overdue follow-ups and unworked prospecting searches.
   let counts = {};
   try {
-    const [dash, prospects] = await Promise.all([
+    const [dash, prospects, automation] = await Promise.all([
       api.get('/api/dashboard'),
       api.get('/api/prospects?status=new').catch(() => ({ prospects: [] })),
+      api.get('/api/automation/token').catch(() => ({ status: null })),
     ]);
     counts = {
       leads: dash.tasks.overdue || 0,
       find: prospects.prospects?.length || 0,
       deals: dash.revenue.counts.pending || 0,
+      // Messages Claude staged that are waiting on a human to press send.
+      automation: automation.status?.awaitingSend || 0,
     };
   } catch { /* badges are cosmetic */ }
   paintNav(counts);
