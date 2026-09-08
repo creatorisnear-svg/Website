@@ -1,0 +1,26 @@
+{
+  "_comment": "Optional. Settings are normally edited in the dashboard's Settings tab and stored in data/settings.json. This file is only a reference for what can be configured.",
+  "agent": {
+    "name": "Daniel Oceguera",
+    "phone": "602-625-5625",
+    "business": "Daniel Oceguera AZ Real Estate",
+    "brokerage": "",
+    "licenseNumber": ""
+  },
+  "commissions": {
+    "agentCommissionPct": 2.5,
+    "referralPct": 25,
+    "flatBonusPerClose": 0
+  },
+  "goals": {
+    "monthlyRevenue": 5000,
+    "monthlyLeads": 60
+  },
+  "publicSite": {
+    "baseUrl": ""
+  },
+  "server": {
+    "port": 4317,
+    "host": "127.0.0.1"
+  }
+}

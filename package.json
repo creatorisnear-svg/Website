@@ -1,0 +1,18 @@
+{
+  "name": "maricopa-buyer-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local-first buyer lead generation + referral commission dashboard for Daniel Oceguera AZ Real Estate (Maricopa County & City of Maricopa, Arizona).",
+  "type": "module",
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node scripts/seed.js",
+    "reset": "node scripts/reset.js",
+    "backup": "node scripts/backup.js",
+    "scan": "node scripts/scan.js"
+  },
+  "dependencies": {},
+  "license": "UNLICENSED"
+}
