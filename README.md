@@ -33,7 +33,7 @@ From then on, every push to `main` redeploys the site automatically.
 - [ ] **Connect the quote form.** Create a free form at [formspree.io](https://formspree.io), copy the form's endpoint, and replace `YOUR_FORM_ID` in `index.html` with the ID from that endpoint (find-and-replace all occurrences is fine). Submissions are emailed to the address on your Formspree account. Until this is done, the form shows a polite "not connected yet, please call or text" message instead of sending.
 - [ ] **Photo upload on the form.** Formspree's free plan does not deliver file attachments. Either upgrade the plan or delete the "Photo of the front of your house" field in `index.html` (the `<div class="field span-2">` block that contains `id="photo"`). Everything else on the form works on the free plan.
 - [ ] **Business email.** Replace `hello@ocelights.com` in `index.html` (two places) and `agreement.html` (one place) with your real email.
-- [ ] **Photos.** Add `hero.jpg` and `gallery-1.jpg` through `gallery-6.jpg` to the `img/` folder. They show up automatically; no code changes needed.
+- [ ] **Photos.** Five photos are already in `img/`. To swap one, overwrite the file and keep the same name. The current files are small (about 640 px wide), so replace them with full-size originals when you can. See `img/README.md`.
 - [ ] **Agreement.** Fill in everything in `[brackets]` in `agreement.html` (effective date, deposit rules, warranty length, fees) and have the terms reviewed before using them with customers.
 - [ ] **Stripe.** In Stripe, set the Terms of Service URL to `https://YOUR-DOMAIN/agreement`.
 

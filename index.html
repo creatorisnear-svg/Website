@@ -457,17 +457,19 @@
     @media (min-width: 1000px) { .steps { grid-template-columns: repeat(4, 1fr); } }
 
     /* ---------- Gallery ---------- */
-    .gallery { display: grid; gap: .75rem; grid-template-columns: 1fr 1fr; }
+    .gallery { display: grid; gap: 1rem .75rem; grid-template-columns: 1fr 1fr; }
+    .gallery-item { margin: 0; }
     .gallery .photo { aspect-ratio: 1 / 1; }
     .gallery .photo__label { gap: .3rem; padding: .75rem; }
     .gallery .photo__label svg { width: 48px; height: 36px; }
     .gallery .photo__label span { font-size: .78rem; }
-    .gallery .photo__label small { display: none; }
+    .gallery-cap { margin: .5rem 0 0; font-size: .85rem; font-weight: 600; color: var(--ink-2); }
     @media (min-width: 600px) {
+      .gallery { gap: 1.5rem 1rem; }
       .gallery .photo { aspect-ratio: 4 / 3; }
-      .gallery .photo__label small { display: block; }
+      .gallery-cap { font-size: .9rem; }
     }
-    @media (min-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+    @media (min-width: 900px) { .gallery { gap: 2rem 1.5rem; } }
 
     /* ---------- Quote form ---------- */
     .quote-layout { display: grid; gap: 2rem; }
@@ -749,7 +751,7 @@
 
         <!-- HERO PHOTO: save your nighttime photo as img/hero.jpg (about 1600 x 1200 px) and it appears here automatically. -->
         <figure class="photo photo--hero" aria-label="Photo of a home with permanent roofline lights at night">
-          <img src="img/hero.jpg" alt="Home in Avondale at night with warm white permanent roofline lights" onerror="this.remove()">
+          <img src="img/hero.jpg" alt="Single-story stucco home at night with warm white permanent roofline lights" onerror="this.remove()">
           <figcaption class="photo__label">
             <svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/>
@@ -902,33 +904,38 @@
       <div class="container">
         <div class="section-head">
           <h2>Real installs, day and night</h2>
-          <p>Homes in Avondale, Goodyear, and Litchfield Park.</p>
+          <p>Warm white for every day, any color for the occasion, and a track you barely notice in daylight.</p>
         </div>
-        <!-- GALLERY PHOTOS: save photos as img/gallery-1.jpg through img/gallery-6.jpg (about 1200 x 900 px) and they appear here automatically. -->
+        <!-- GALLERY PHOTOS: files live in img/. To add another photo, copy one <figure class="gallery-item"> block
+             and point it at the new file. A missing file shows a neutral "Photo coming soon" tile instead. -->
         <div class="gallery">
-          <figure class="photo">
-            <img src="img/gallery-1.jpg" alt="Front roofline lit in warm white at night" loading="lazy" onerror="this.remove()">
-            <figcaption class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span><small>Front roofline, warm white</small></figcaption>
+          <figure class="gallery-item">
+            <div class="photo">
+              <img src="img/gallery-1.jpg" alt="Two-story home at night with every roofline and gable outlined in teal light" loading="lazy" onerror="this.remove()">
+              <div class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span></div>
+            </div>
+            <figcaption class="gallery-cap">Two-story home in teal</figcaption>
           </figure>
-          <figure class="photo">
-            <img src="img/gallery-2.jpg" alt="Two-story home lit in red and green for the holidays" loading="lazy" onerror="this.remove()">
-            <figcaption class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span><small>Two-story, holiday colors</small></figcaption>
+          <figure class="gallery-item">
+            <div class="photo">
+              <img src="img/gallery-2.jpg" alt="Covered patio at night lit in warm white along the roofline" loading="lazy" onerror="this.remove()">
+              <div class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span></div>
+            </div>
+            <figcaption class="gallery-cap">Covered patio, warm white</figcaption>
           </figure>
-          <figure class="photo">
-            <img src="img/gallery-3.jpg" alt="Daytime view showing the hidden track under the eave" loading="lazy" onerror="this.remove()">
-            <figcaption class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span><small>Daytime, track hidden</small></figcaption>
+          <figure class="gallery-item">
+            <div class="photo">
+              <img src="img/gallery-3.jpg" alt="Daytime view of the eave corner showing the low-profile track" loading="lazy" onerror="this.remove()">
+              <div class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span></div>
+            </div>
+            <figcaption class="gallery-cap">Daytime: the track tucks under the eave</figcaption>
           </figure>
-          <figure class="photo">
-            <img src="img/gallery-4.jpg" alt="Garage and front peak lit in team colors on game day" loading="lazy" onerror="this.remove()">
-            <figcaption class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span><small>Garage and peak, game day</small></figcaption>
-          </figure>
-          <figure class="photo">
-            <img src="img/gallery-5.jpg" alt="Full front of a single-story home in everyday warm white" loading="lazy" onerror="this.remove()">
-            <figcaption class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span><small>Full front, everyday warm white</small></figcaption>
-          </figure>
-          <figure class="photo">
-            <img src="img/gallery-6.jpg" alt="Close-up of the aluminum track and lights during the day" loading="lazy" onerror="this.remove()">
-            <figcaption class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span><small>Track close-up, daytime</small></figcaption>
+          <figure class="gallery-item">
+            <div class="photo">
+              <img src="img/gallery-4.jpg" alt="Close-up of the white aluminum track with the lights on" loading="lazy" onerror="this.remove()">
+              <div class="photo__label"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L32 6l24 18"/><path d="M14 20v22h36V20"/><path d="M26 42V30h12v12"/><g fill="#E8A838" stroke="none"><circle cx="14" cy="22.5" r="1.8"/><circle cx="20" cy="18" r="1.8"/><circle cx="26" cy="13.5" r="1.8"/><circle cx="38" cy="13.5" r="1.8"/><circle cx="44" cy="18" r="1.8"/><circle cx="50" cy="22.5" r="1.8"/></g></svg><span>Photo coming soon</span></div>
+            </div>
+            <figcaption class="gallery-cap">Track close-up</figcaption>
           </figure>
         </div>
       </div>
