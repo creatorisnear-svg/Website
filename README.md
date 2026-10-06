@@ -1,39 +1,29 @@
-# Oce Lights website
+# Go Roofline Lights website
 
-Static website for Oce Lights, a permanent LED roofline lighting installer in Avondale, Arizona. No build step, no framework. Upload the files as-is to Cloudflare Pages, Netlify, or GitHub Pages.
+Static website for Go Roofline Lights, a permanent LED roofline lighting installer for homes in Avondale, Arizona (residential only). No build step, no framework.
 
 ## What's in here
 
 | File | Purpose |
 | --- | --- |
 | `index.html` | The whole home page: HTML, CSS, and JavaScript in one file |
-| `agreement.html` | Installation Agreement. Public URL will be `/agreement` (use this as the Terms of Service link in Stripe) |
-| `404.html` | Friendly "page not found" page (Cloudflare Pages serves it automatically) |
-| `img/` | Put your photos here. See `img/README.md` for the exact file names |
+| `agreement.html` | Installation Agreement. Public URL is `/agreement` (use this as the Terms of Service link in Stripe) |
+| `404.html` | Friendly "page not found" page |
+| `img/` | Photos. See `img/README.md` for which file goes where |
 | `favicon.svg`, `apple-touch-icon.png` | Browser tab and home-screen icons |
-| `_headers` | Security and caching headers for Cloudflare Pages / Netlify |
+| `_headers` | Security and caching headers (for Cloudflare Pages / Netlify; the current server sets the same headers itself) |
 | `.nojekyll` | Only matters for GitHub Pages; harmless elsewhere |
 
-## Deploy on Cloudflare Pages (about 5 minutes)
+## Updating the live site
 
-1. In the Cloudflare dashboard, open **Workers & Pages**, then **Create**, then the **Pages** tab, then **Connect to Git**.
-2. Pick this GitHub repository and click **Begin setup**.
-3. Use these settings:
-   - **Production branch:** `main`
-   - **Framework preset:** None
-   - **Build command:** leave empty
-   - **Build output directory:** `/` (the repo root)
-4. Click **Save and Deploy**. You'll get a `*.pages.dev` address right away.
-5. To use your own domain, open the Pages project, go to **Custom domains**, and add it. If the domain is already on Cloudflare, DNS is set up for you.
-
-From then on, every push to `main` redeploys the site automatically.
+The live site follows this branch. Push a change here and it shows up on the site within a couple of minutes. Nothing else to do.
 
 ## Before going live (checklist)
 
-- [ ] **Connect the quote form.** Create a free form at [formspree.io](https://formspree.io), copy the form's endpoint, and replace `YOUR_FORM_ID` in `index.html` with the ID from that endpoint (find-and-replace all occurrences is fine). Submissions are emailed to the address on your Formspree account. Until this is done, the form shows a polite "not connected yet, please call or text" message instead of sending.
-- [ ] **Photo upload on the form.** Formspree's free plan does not deliver file attachments. Either upgrade the plan or delete the "Photo of the front of your house" field in `index.html` (the `<div class="field span-2">` block that contains `id="photo"`). Everything else on the form works on the free plan.
-- [ ] **Business email.** Replace `hello@ocelights.com` in `index.html` (two places) and `agreement.html` (one place) with your real email.
-- [ ] **Photos.** Five photos are already in `img/`. To swap one, overwrite the file and keep the same name. The current files are small (about 640 px wide), so replace them with full-size originals when you can. See `img/README.md`.
+- [ ] **Connect the estimate form.** Create a free form at [formspree.io](https://formspree.io), copy the form's endpoint, and replace `YOUR_FORM_ID` in `index.html` with the ID from that endpoint. Submissions are emailed to the address on your Formspree account. Until this is done, the form shows a polite "not connected yet, please call or text" message instead of sending.
+- [ ] **Photo upload on the form.** Formspree's free plan does not deliver file attachments. Either upgrade the plan or delete the "Photo of the front of your house" field in `index.html` (the `<div class="field span-2">` block that contains `id="photo"`).
+- [ ] **Business email.** `hello@gorooflinelights.com` is a placeholder. Replace it in `index.html` (two places) and `agreement.html` (one place) with your real email.
+- [ ] **Photos.** Most photos in `img/` are small (about 640 px wide). Replace them with full-size originals when you can. See `img/README.md`.
 - [ ] **Agreement.** Fill in everything in `[brackets]` in `agreement.html` (effective date, deposit rules, warranty length, fees) and have the terms reviewed before using them with customers.
 - [ ] **Stripe.** In Stripe, set the Terms of Service URL to `https://YOUR-DOMAIN/agreement`.
 
@@ -41,10 +31,11 @@ From then on, every push to `main` redeploys the site automatically.
 
 Everything is plain HTML, so you can edit text directly:
 
-- **Prices:** search `index.html` for `$699`, `$849`, `$975`, `$995`.
+- **Prices:** the site deliberately shows no prices. The "Pricing" section says prices are significantly lower than other installers, and the FAQ says the exact price comes after the free measurement.
 - **Phone number:** search for `623` to find every place it appears (display text and `tel:` / `sms:` links).
 - **FAQ:** each question is a `<details>` block near the bottom of `index.html`.
-- **Service areas:** appear in the hero, footer, FAQ, form dropdown, and the page's structured data near the top of `index.html`.
+- **Service areas:** appear in the hero, footer, FAQ, form dropdown, and the structured data near the top of `index.html`.
+- **Glow color:** change `--glow` and `--glow-rgb` at the top of the `<style>` block in `index.html` (and in `agreement.html`).
 
 ## Preview locally
 
@@ -54,8 +45,8 @@ Any static server works. For example, from this folder:
 python3 -m http.server 8080
 ```
 
-Then open <http://localhost:8080>. (Opening `index.html` directly from the file system also works, except the form and clean `/agreement` URL.)
+Then open <http://localhost:8080>. (Opening `index.html` directly from the file system also works, except the form and the clean `/agreement` URL.)
 
 ## Payments
 
-There is no checkout on the site on purpose. Deposits and balances are sent to customers as Stripe Payment Links by text after the quote. No Stripe keys are in this code.
+There is no checkout on the site on purpose. Deposits and balances are sent to customers as Stripe Payment Links by text after the estimate. No Stripe keys are in this code.

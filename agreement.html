@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Installation Agreement | Oce Lights</title>
-  <meta name="description" content="Oce Lights Installation Agreement: services, pricing, payment terms, cancellation policy, customer responsibilities, warranty, and liability for permanent roofline lighting installs.">
-  <meta name="theme-color" content="#F5F1E6">
+  <title>Installation Agreement | Go Roofline Lights</title>
+  <meta name="description" content="Go Roofline Lights Installation Agreement: services, pricing, payment terms, cancellation policy, customer responsibilities, warranty, and liability for permanent roofline lighting installs.">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,17 +13,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #F5F1E6;
-      --paper: #FFFDF8;
-      --line: #DDD6C4;
-      --navy: #14213D;
-      --navy-2: #1C2B4D;
-      --ink-2: #4B5570;
-      --amber: #E8A838;
-      --amber-deep: #D8962B;
-      --radius: 12px;
-      --radius-sm: 8px;
-      --header-h: 64px;
+      --bg: #0a0a0a;
+      --panel: #111111;
+      --panel-2: #171717;
+      --line: #262626;
+      --line-2: #383838;
+      --text: #f5f5f4;
+      --muted: #a6a6a4;
+      --glow: #ffb23e;
+      --glow-hi: #ffc76e;
+      --glow-rgb: 255, 178, 62;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --header-h: 68px;
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
@@ -32,82 +34,85 @@
       font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
       font-size: 16px;
       line-height: 1.65;
-      color: var(--navy);
-      background: var(--cream);
+      color: var(--text);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
     @media (min-width: 900px) { body { font-size: 17px; } }
-    a { color: var(--navy); }
+    a { color: var(--text); }
     h1, h2, h3 { line-height: 1.2; margin: 0; }
     p { margin: 0 0 1rem; }
-    :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+    :focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; }
 
-    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 18px; }
     @media (min-width: 900px) { .container { padding: 0 32px; } }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
-      min-height: 44px; padding: 0 1.1rem; border-radius: var(--radius-sm);
-      border: 2px solid transparent; font: inherit; font-weight: 700; font-size: .95rem;
-      text-decoration: none; cursor: pointer;
-      transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+      min-height: 46px; padding: 0 1.3rem; border-radius: var(--radius-sm);
+      border: 1.5px solid transparent; font: inherit; font-weight: 700; font-size: .82rem;
+      letter-spacing: .08em; text-transform: uppercase; text-decoration: none; cursor: pointer;
+      transition: background-color .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
     }
-    .btn--amber { background: var(--amber); border-color: var(--amber); color: var(--navy); }
-    .btn--amber:hover { background: var(--amber-deep); border-color: var(--amber-deep); }
-    .btn--outline { background: transparent; border-color: var(--navy); color: var(--navy); }
-    .btn--outline:hover { background: var(--navy); color: var(--cream); }
+    .btn--glow { background: var(--glow); border-color: var(--glow); color: #140c00; box-shadow: 0 0 18px rgba(var(--glow-rgb), .4); }
+    .btn--glow:hover { background: var(--glow-hi); border-color: var(--glow-hi); }
+    .btn--outline { background: transparent; border-color: rgba(var(--glow-rgb), .8); color: var(--text); }
+    .btn--outline:hover { background: rgba(var(--glow-rgb), .12); }
 
     /* Header */
-    .site-header { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: 1px solid var(--line); }
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(10, 10, 10, .9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: var(--header-h); }
-    .brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 800; font-size: 1.3rem; letter-spacing: -.01em; color: var(--navy); text-decoration: none; white-space: nowrap; }
-    .brand svg { width: 34px; height: 34px; flex: none; }
+    .brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 800; font-size: 1.05rem; letter-spacing: .04em; text-transform: uppercase; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .brand svg { width: 38px; height: 38px; flex: none; }
+    .brand svg circle { filter: drop-shadow(0 0 2.5px rgba(var(--glow-rgb), .9)); }
+    .brand b { color: var(--glow); font-weight: 800; }
     .header-actions { display: flex; align-items: center; gap: .75rem; }
     .header-phone { display: none; font-weight: 700; text-decoration: none; white-space: nowrap; }
-    .header-phone:hover { color: var(--amber-deep); }
-    @media (min-width: 600px) { .header-phone { display: inline-flex; } }
+    .header-phone:hover { color: var(--glow); }
+    @media (min-width: 640px) { .header-phone { display: inline-flex; } }
+    @media (max-width: 420px) { .site-header .brand span { display: none; } }
 
     /* Document */
     .doc { padding: 2.5rem 0 4rem; }
     .doc-head { max-width: 46rem; margin-bottom: 2rem; }
-    .eyebrow { margin: 0 0 .75rem; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
-    .doc h1 { font-size: clamp(1.9rem, 6vw, 2.8rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 1rem; }
-    .doc-meta { color: var(--ink-2); font-size: .95rem; }
-    .doc-layout { display: grid; gap: 2rem; }
-    .toc {
-      background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem;
-    }
-    .toc h2 { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin-bottom: .75rem; }
-    .toc ol { margin: 0; padding-left: 1.25rem; display: grid; gap: .4rem; font-size: .95rem; }
+    .eyebrow { margin: 0 0 .75rem; font-size: .78rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--glow); }
+    .doc h1 { font-size: clamp(1.9rem, 6vw, 2.9rem); font-weight: 800; letter-spacing: -.01em; text-transform: uppercase; line-height: 1.08; margin-bottom: 1rem; }
+    .doc-meta { color: var(--muted); font-size: .95rem; }
+    .doc-layout { display: grid; gap: 1.5rem; }
+    .toc { background: var(--panel); border: 1px solid var(--line-2); border-radius: var(--radius); padding: 1.25rem 1.4rem; }
+    .toc h2 { font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--glow); margin-bottom: .85rem; }
+    .toc ol { margin: 0; padding-left: 1.25rem; display: grid; gap: .45rem; font-size: .93rem; color: var(--muted); }
     .toc a { text-decoration: none; font-weight: 600; }
-    .toc a:hover { text-decoration: underline; }
+    .toc a:hover { color: var(--glow); }
     .paper {
-      background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.25rem;
+      background: var(--panel); border: 1px solid rgba(var(--glow-rgb), .45); border-radius: var(--radius); padding: 1.5rem 1.25rem;
+      box-shadow: 0 0 26px rgba(var(--glow-rgb), .1);
       max-width: 52rem;
     }
-    .paper section { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+    .paper section { padding: 1.6rem 0; border-top: 1px solid var(--line-2); }
     .paper section:first-of-type { padding-top: 0; border-top: 0; }
-    .paper h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: .75rem; letter-spacing: -.01em; }
-    .paper h2 .num { color: var(--amber-deep); margin-right: .5rem; }
+    .paper h2 { font-size: 1.1rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .8rem; }
+    .paper h2 .num { color: var(--glow); margin-right: .5rem; }
     .paper ul { margin: 0 0 1rem; padding-left: 1.25rem; }
-    .paper li { margin-bottom: .4rem; }
-    .paper p, .paper li { color: var(--navy); }
-    .fill { display: inline-block; min-width: 8rem; border-bottom: 1.5px solid var(--navy); padding: 0 .25rem; font-weight: 600; }
-    .kv { display: grid; gap: .6rem; margin: 0 0 1rem; padding: 1rem; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+    .paper li { margin-bottom: .45rem; }
+    .paper p, .paper li { color: #d9d9d7; }
+    .paper strong { color: var(--text); }
+    .fill { display: inline-block; min-width: 8rem; border-bottom: 1.5px solid var(--text); padding: 0 .25rem; font-weight: 600; }
+    .kv { display: grid; gap: .7rem; margin: 0 0 1.25rem; padding: 1.1rem; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: var(--radius-sm); }
     .kv div { display: grid; grid-template-columns: 1fr; gap: .15rem; }
-    .kv dt { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+    .kv dt { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
     .kv dd { margin: 0; font-weight: 600; }
     @media (min-width: 600px) {
       .kv { grid-template-columns: 1fr 1fr; }
     }
     .callout {
-      margin: 1rem 0 0; padding: 1rem 1.1rem; border: 2px solid var(--amber); border-radius: var(--radius-sm);
-      font-weight: 700; text-align: center; letter-spacing: .04em; text-transform: uppercase;
+      margin: 1rem 0 0; padding: 1rem 1.1rem; border: 1.5px solid rgba(var(--glow-rgb), .8); border-radius: 10px;
+      font-weight: 800; text-align: center; letter-spacing: .12em; text-transform: uppercase; color: var(--text) !important;
     }
-    .sig { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
-    .sig div { border-top: 1.5px solid var(--navy); padding-top: .4rem; font-size: .85rem; color: var(--ink-2); }
+    .sig { display: grid; gap: 1.5rem; margin-top: 1.75rem; }
+    .sig div { border-top: 1.5px solid var(--muted); padding-top: .4rem; font-size: .85rem; color: var(--muted); }
     @media (min-width: 600px) { .sig { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-    .doc-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .doc-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
     @media (min-width: 1000px) {
       .doc { padding: 4rem 0 5rem; }
       .doc-layout { grid-template-columns: 260px 1fr; gap: 3rem; align-items: start; }
@@ -116,21 +121,23 @@
     }
 
     /* Footer */
-    .site-footer { background: var(--navy); color: var(--cream); padding: 2.5rem 0 2rem; }
-    .site-footer a { color: var(--cream); }
-    .site-footer a:hover { color: var(--amber); }
+    .site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 2rem; }
     .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
-    .footer-row .brand { color: var(--cream); }
     .footer-links { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; font-weight: 600; }
     .footer-links a { text-decoration: none; }
-    .footer-links a:hover { text-decoration: underline; }
-    .notice { margin-top: 1.75rem; padding: .9rem 1rem; border: 2px solid var(--amber); border-radius: var(--radius-sm); text-align: center; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .95rem; }
-    .footer-bottom { margin-top: 1.25rem; font-size: .82rem; color: rgba(245, 241, 230, .72); text-align: center; }
+    .footer-links a:hover { color: var(--glow); }
+    .notice { margin-top: 1.75rem; padding: .9rem 1rem; border: 1.5px solid rgba(var(--glow-rgb), .7); border-radius: 10px; text-align: center; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .85rem; }
+    .footer-bottom { margin-top: 1.25rem; font-size: .8rem; color: var(--muted); text-align: center; }
 
     @media print {
       .site-header, .toc, .doc-actions, .site-footer { display: none !important; }
       body { background: #fff; color: #000; font-size: 11pt; }
-      .paper { border: 0; padding: 0; max-width: none; }
+      .doc h1, .eyebrow, .doc-meta, .paper h2 .num { color: #000; }
+      .paper { border: 0; box-shadow: none; padding: 0; max-width: none; background: #fff; }
+      .paper p, .paper li, .paper strong, .kv dd, .kv dt, .sig div, .callout { color: #000 !important; }
+      .kv { background: #fff; border-color: #999; }
+      .sig div { border-color: #000; }
+      .callout { border-color: #000; }
       .doc { padding: 0; }
       a { text-decoration: none; color: #000; }
     }
@@ -140,12 +147,12 @@
   <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="index.html" aria-label="Oce Lights home">
+      <a class="brand" href="index.html" aria-label="Go Roofline Lights home">
         <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-          <path d="M5 30 C 13 30, 27 10, 35 10" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round"/>
-          <path d="M5 10 C 13 10, 27 30, 35 30" fill="none" stroke="#E8A838" stroke-width="4" stroke-linecap="round"/>
+          <path d="M3 27 L20 12 L37 27" fill="none" stroke="#f5f5f4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="#ffb23e"><circle cx="8.8" cy="26.7" r="1.8"/><circle cx="13.0" cy="22.95" r="1.8"/><circle cx="17.3" cy="19.2" r="1.8"/><circle cx="22.7" cy="19.2" r="1.8"/><circle cx="27.0" cy="22.95" r="1.8"/><circle cx="31.2" cy="26.7" r="1.8"/></g>
         </svg>
-        <span>Oce Lights</span>
+        <span>Go Roofline <b>Lights</b></span>
       </a>
       <div class="header-actions">
         <a class="header-phone" href="tel:+16238268091">(623) 826-8091</a>
@@ -158,7 +165,7 @@
     <div class="container">
       <div class="doc-head">
         <p class="eyebrow">Terms of service</p>
-        <h1>Oce Lights Installation Agreement</h1>
+        <h1>Go Roofline Lights Installation Agreement</h1>
         <!-- Update the effective date whenever you change these terms. -->
         <p class="doc-meta">Effective date: [Month Day, Year]. Questions? Call or text <a href="tel:+16238268091">(623) 826-8091</a>.</p>
       </div>
@@ -186,7 +193,7 @@
           reviewed before you use them with customers.
         -->
         <article class="paper">
-          <p>This Installation Agreement (the "Agreement") is between <strong>Oce Lights</strong> ("we," "us," or "our") and the customer named below ("you"). By paying a deposit, signing below, or accepting these terms at checkout, you agree to everything in this Agreement.</p>
+          <p>This Installation Agreement (the "Agreement") is between <strong>Go Roofline Lights</strong> ("we," "us," or "our") and the customer named below ("you"). By paying a deposit, signing below, or accepting these terms at checkout, you agree to everything in this Agreement.</p>
 
           <dl class="kv">
             <div><dt>Customer name</dt><dd>[Customer name]</dd></div>
@@ -267,13 +274,13 @@
 
           <section id="photos">
             <h2><span class="num">8.</span>Photo permission</h2>
-            <p>You give Oce Lights permission to take photos and video of the completed installation and to use them on our website, social media, and marketing materials. We will not show your house number, street name, or your name.</p>
+            <p>You give Go Roofline Lights permission to take photos and video of the completed installation and to use them on our website, social media, and marketing materials. We will not show your house number, street name, or your name.</p>
             <p>If you would rather not, just tell us. <strong>[ ] I do NOT give photo permission.</strong></p>
           </section>
 
           <section id="license">
             <h2><span class="num">9.</span>Not a licensed contractor</h2>
-            <p><strong>Oce Lights is not a licensed contractor.</strong> Our installations are performed under Arizona's exemption for work under $1,000 in total (labor and materials) that does not require a building permit. We do not perform electrical work, roofing, or any work that requires a permit.</p>
+            <p><strong>Go Roofline Lights is not a licensed contractor.</strong> Our installations are performed under Arizona's exemption for work under $1,000 in total (labor and materials) that does not require a building permit. We do not perform electrical work, roofing, or any work that requires a permit.</p>
             <p class="callout">Not a Licensed Contractor</p>
           </section>
 
@@ -282,14 +289,14 @@
             <p>Paying the deposit through the payment link we send you counts as accepting this Agreement, the same as signing it. You can also sign below.</p>
             <div class="sig">
               <div>Customer signature and date</div>
-              <div>Oce Lights signature and date</div>
+              <div>Go Roofline Lights signature and date</div>
             </div>
           </section>
         </article>
       </div>
 
       <div class="doc-actions">
-        <a class="btn btn--amber" href="index.html#quote">Get a Free Quote</a>
+        <a class="btn btn--glow" href="index.html#quote">Free Estimate</a>
         <a class="btn btn--outline" href="index.html">Back to site</a>
       </div>
     </div>
@@ -299,21 +306,21 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-row">
-        <a class="brand" href="index.html" aria-label="Oce Lights home">
+        <a class="brand" href="index.html" aria-label="Go Roofline Lights home">
           <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-            <path d="M5 30 C 13 30, 27 10, 35 10" fill="none" stroke="#F5F1E6" stroke-width="4" stroke-linecap="round"/>
-            <path d="M5 10 C 13 10, 27 30, 35 30" fill="none" stroke="#E8A838" stroke-width="4" stroke-linecap="round"/>
-          </svg>
-          <span>Oce Lights</span>
+          <path d="M3 27 L20 12 L37 27" fill="none" stroke="#f5f5f4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="#ffb23e"><circle cx="8.8" cy="26.7" r="1.8"/><circle cx="13.0" cy="22.95" r="1.8"/><circle cx="17.3" cy="19.2" r="1.8"/><circle cx="22.7" cy="19.2" r="1.8"/><circle cx="27.0" cy="22.95" r="1.8"/><circle cx="31.2" cy="26.7" r="1.8"/></g>
+        </svg>
+          <span>Go Roofline <b>Lights</b></span>
         </a>
         <div class="footer-links">
           <a href="tel:+16238268091">(623) 826-8091</a>
-          <a href="mailto:hello@ocelights.com">hello@ocelights.com</a>
-          <a href="index.html#quote">Get a Free Quote</a>
+          <a href="mailto:hello@gorooflinelights.com">hello@gorooflinelights.com</a>
+          <a href="index.html#quote">Free Estimate</a>
         </div>
       </div>
       <p class="notice">Not a Licensed Contractor</p>
-      <p class="footer-bottom">&copy; <span id="year">2026</span> Oce Lights. Locally owned in Avondale, Arizona. Serving Avondale, Goodyear, and Litchfield Park.</p>
+      <p class="footer-bottom">&copy; <span id="year">2026</span> Go Roofline Lights. Locally owned in Avondale, Arizona. Serving Avondale, Goodyear, and Litchfield Park.</p>
     </div>
   </footer>
 
